@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.io.*;
 public class Main {
+
     private static ArrayList<Client> clients = new ArrayList<Client>();
 
 
@@ -19,6 +20,7 @@ public class Main {
 	    int counter = 0;
 	    while (command!=0) {
             System.out.println("1-Book a room\n" +
+                               "2-Admin\n" +
                                "0-exit");
             command = in.nextInt();
 
@@ -138,7 +140,7 @@ public class Main {
                     Boolean pool;
                     if (in.nextInt() == 1){
                         pool = true;
-                        price = price + 50.20;
+                        price = price + 20.10;
                     }
                     else
                         pool = false;
@@ -149,6 +151,24 @@ public class Main {
                 }
                 counter = counter + 1;
 
+            }
+            else if(command == 2){
+                System.out.println("Hotel's clients:");
+
+                try {
+                    File file = new File("clients.txt");
+                    FileReader fr = new FileReader(file);
+                    BufferedReader reader = new BufferedReader(fr);
+                    String line = reader.readLine();
+                    while (line != null) {
+                        System.out.println(line);
+                        line = reader.readLine();
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
@@ -168,31 +188,8 @@ public class Main {
 
         }
         catch(IOException ex){
-
             System.out.println(ex.getMessage());
         }
 
-
-         //read from file
-        try(FileReader reader = new FileReader("clients.txt"))
-        {
-            int c;
-            while((c=reader.read())!=-1){
-                System.out.print((char)c);
-
-            }
-        }
-        catch(IOException ex){
-            System.out.println(ex.getMessage());
-        }
-        /*try(Scanner scanner = new Scanner(Paths.get("clients.txt"), StandardCharsets.UTF_8.name())){
-        String data = scanner.useDelimiter("\\|").next();
-        System.out.println(data);
-        scanner.close();
-        }
-        catch(IOException ex){
-
-            System.out.println(ex.getMessage());
-        }*/
     }
 }
