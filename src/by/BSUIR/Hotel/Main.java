@@ -1,37 +1,37 @@
 package by.BSUIR.Hotel;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.nio.file.Paths;
 import java.util.List;
 import java.io.*;
 public class Main {
+    private static ArrayList<Client> clients = new ArrayList<Client>();
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        List<Client> clients = new ArrayList<>();
 
 	    System.out.println("Welcome to Hotel!");
 
 	    System.out.println("Choose menu point:");
 	    int command = -1;
+	    int counter = 0;
 	    while (command!=0) {
             System.out.println("1-Book a room\n" +
                                "0-exit");
             command = in.nextInt();
 
             if (command == 1) {
-                Client client = new Client();
-                
+
                 System.out.println("Name:");
                 String name = in.next();
-                client.setName(name);
 
                 System.out.println("Surname:");
                 String surname = in.next();
-                client.setSurname(surname);
 
                 System.out.println("Mobile number:");
                 String mobile = in.next();
-                client.setMobilePhone(mobile);
 
                 Room room;
                 double price;
@@ -73,8 +73,8 @@ public class Main {
                         cond = false;
 
                     room = new Superior(price, number, beds,bar,cond);
-                    client.setRoom(room);
-                    client.setPayCheque(price);
+                    Client client = new Client(name, surname,mobile,price,room);
+                    clients.add(counter,client);
                 }
                 else if(roomcommand == 2){
                     price = 65.50;
@@ -99,8 +99,8 @@ public class Main {
                     int countap = in.nextInt();
 
                     room = new Suite(price, number, beds,bar,countap);
-                    client.setRoom(room);
-                    client.setPayCheque(price);
+                    Client client = new Client(name, surname,mobile,price,room);
+                    clients.add(counter,client);
                 }
                 else if(roomcommand == 3){
                     price = 105.70;
@@ -122,8 +122,8 @@ public class Main {
                         kitchen = false;
 
                     room = new Studio(price, number, beds,kitchen);
-                    client.setRoom(room);
-                    client.setPayCheque(price);
+                    Client client = new Client(name, surname,mobile,price,room);
+                    clients.add(counter,client);
                 }
                 else if(roomcommand == 4){
                     price = 175.70;
@@ -144,43 +144,55 @@ public class Main {
                         pool = false;
 
                     room = new Bungalo(price, number, beds,pool);
-                    client.setRoom(room);
-                    client.setPayCheque(price);
+                    Client client = new Client(name, surname,mobile,price,room);
+                    clients.add(counter,client);
                 }
-                clients.add(client);
+                counter = counter + 1;
 
             }
 
         }
+
         //write to file
         String text = "";
-        for (int i = 0; i < clients.size(); i++){
-            Client listClient = (Client) clients.get(i);
-            text = listClient.getName() +"|"+ listClient.getSurname() +"|"+ listClient.getMobilePhone() +"|"+ listClient.getPayCheque() +"|"+ listClient.getRoom().getNumberOfRoom();
-            try(FileWriter writer = new FileWriter("clients.txt", false))
-            {
+        try(FileWriter writer = new FileWriter("clients.txt", false))
+        {
+            for (int i = 0; i < clients.size(); i++){
+                Client listClient = (Client) clients.get(i);
+                text = listClient.getName() +"|"+ listClient.getSurname() +"|"+ listClient.getMobilePhone() +"|"+ listClient.getPayCheque() +"|"+ listClient.getRoom().getNumberOfRoom();
+
                 writer.write(text);
                 writer.append('\n');
-
                 writer.flush();
-            }
-            catch(IOException ex){
-
-                System.out.println(ex.getMessage());
             }
 
         }
+        catch(IOException ex){
+
+            System.out.println(ex.getMessage());
+        }
+
+
          //read from file
         try(FileReader reader = new FileReader("clients.txt"))
         {
             int c;
             while((c=reader.read())!=-1){
                 System.out.print((char)c);
-                text = text + Integer.toString(c);
+
             }
         }
         catch(IOException ex){
             System.out.println(ex.getMessage());
         }
+        /*try(Scanner scanner = new Scanner(Paths.get("clients.txt"), StandardCharsets.UTF_8.name())){
+        String data = scanner.useDelimiter("\\|").next();
+        System.out.println(data);
+        scanner.close();
+        }
+        catch(IOException ex){
+
+            System.out.println(ex.getMessage());
+        }*/
     }
 }
