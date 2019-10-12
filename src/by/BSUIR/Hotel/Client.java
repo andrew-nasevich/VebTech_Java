@@ -18,11 +18,11 @@ public class Client {
     }
 
     public Client() {}
-    @Override
+    /*@Override
     public String toString() {
         return "Client{" + "name=" + Name + ", surname=" + Surname + ", phone=" + MobilePhone + ", price=" + PayCheque +  '}';
     }
-
+*/
     public String getName() {
         return Name;
     }

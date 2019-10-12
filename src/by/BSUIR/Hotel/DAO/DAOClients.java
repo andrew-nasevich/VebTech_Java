@@ -79,15 +79,9 @@ public class DAOClients {
             System.err.println("Error in file cleaning: " + e.getMessage());}
 
         FileWriter fw = new FileWriter("clients.txt", true);
-        for (Client client : clients){
-
-            try {
-                fw.write(client.getName()+"\n"+client.getSurname()+"\n"+client.getMobilePhone()+"\n"+client.getPayCheque()+"\n"+client.getRoom().getPrice()+"\n"+client.getRoom().getNumberOfRoom()+"\n"+client.getRoom().getNumOfBeds()+"\n");
-            }
-            finally {
-                fw.close();
-            }
-        }
+        for (Client client : clients)
+            fw.write(client.getName()+"\n"+client.getSurname()+"\n"+client.getMobilePhone()+"\n"+client.getPayCheque()+"\n"+client.getRoom().getPrice()+"\n"+client.getRoom().getNumberOfRoom()+"\n"+client.getRoom().getNumOfBeds()+"\n");
+        fw.close();
         return;
     }
 }

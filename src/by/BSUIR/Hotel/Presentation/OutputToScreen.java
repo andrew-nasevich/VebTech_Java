@@ -19,7 +19,7 @@ public class OutputToScreen {
             while (line != null) {
                 i+=1;
                 System.out.println(line);
-                if (i%5==0)
+                if (i%7==0)
                     System.out.println("---------------------");
                 line = reader.readLine();
             }
@@ -33,7 +33,7 @@ public class OutputToScreen {
     public static void OutputToScreenFromList(ArrayList<Client> clients){
 
         for(Client cl:clients) {
-            System.out.println(cl.toString());
+            System.out.println(cl.getName()+" "+cl.getSurname()+" "+cl.getMobilePhone()+" "+cl.getPayCheque()+" "+cl.getRoom().getNumberOfRoom());
         }
     }
 }

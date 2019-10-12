@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/DAOClients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/DAOClients.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Presentation/OutputToScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Presentation/OutputToScreen.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +102,7 @@
       <workItem from="1569324678591" duration="2708000" />
       <workItem from="1569330857532" duration="11197000" />
       <workItem from="1570739282425" duration="291000" />
-      <workItem from="1570861383937" duration="33425000" />
+      <workItem from="1570861383937" duration="35936000" />
     </task>
     <servers />
   </component>
