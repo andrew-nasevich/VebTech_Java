@@ -7,6 +7,8 @@ public class Room {
         NumOfBeds = numOfBeds;
     }
 
+    public Room(){};
+
     public double getPrice() {
         return Price;
     }

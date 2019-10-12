@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb56aca0-338c-40e6-b96a-87d7615c956d" name="Default Changelist" comment="" />
+    <list default="true" id="fb56aca0-338c-40e6-b96a-87d7615c956d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Room.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -19,11 +28,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1RGs46uEr6f4MmhWAem9gCiaUZb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/by/BSUIR/Hotel/AutoBase" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="by.BSUIR.Hotel.Controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\УНИВЕР\3 курс\WT_JAVA\src\by\BSUIR\Hotel\AutoBase" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -37,9 +57,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="by.BSUIR.Hotel.Main" />
+      <module name="WT_JAVA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.BSUIR.Hotel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="by.BSUIR.Hotel.bean.Main" />
       <module name="WT_JAVA" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
@@ -50,6 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -67,6 +101,8 @@
       <workItem from="1569304577899" duration="8509000" />
       <workItem from="1569324678591" duration="2708000" />
       <workItem from="1569330857532" duration="11197000" />
+      <workItem from="1570739282425" duration="291000" />
+      <workItem from="1570861383937" duration="28960000" />
     </task>
     <servers />
   </component>
@@ -78,10 +114,83 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

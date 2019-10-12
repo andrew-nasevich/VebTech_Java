@@ -9,7 +9,24 @@ public class Client {
         room = clroom;
     }
 
+    public Client(String name, String surname, String mobilePhone, double paycheque, int numroom) {
+        Name = name;
+        Surname = surname;
+        MobilePhone = mobilePhone;
+        PayCheque = paycheque;
+        Room room = new Room();
+        room.setNumberOfRoom(numroom);
+    }
+
     public Client() {
+    }
+    public Client(String name,String surname){
+        Name=name;
+        Surname=surname;
+    }
+    @Override
+    public String toString() {
+        return "Client{" + "name=" + Name + ", surname=" + Surname + ", phone=" + MobilePhone + ", price=" + PayCheque +  '}';
     }
 
     public String getName() {

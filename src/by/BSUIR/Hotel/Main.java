@@ -1,16 +1,22 @@
 package by.BSUIR.Hotel;
-import java.nio.charset.StandardCharsets;
+import by.BSUIR.Hotel.Compare.CompareByPrice;
+import by.BSUIR.Hotel.Compare.CompareBySurname;
+import by.BSUIR.Hotel.Controller.Controller;
+import by.BSUIR.Hotel.DAO.DAOClients;
+import by.BSUIR.Hotel.Presentation.OutputToScreen;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
-import java.nio.file.Paths;
-import java.util.List;
 import java.io.*;
+
 public class Main {
 
     private static ArrayList<Client> clients = new ArrayList<Client>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
         Scanner in = new Scanner(System.in);
 
 	    System.out.println("Welcome to Hotel!");
@@ -77,6 +83,7 @@ public class Main {
                     room = new Superior(price, number, beds,bar,cond);
                     Client client = new Client(name, surname,mobile,price,room);
                     clients.add(counter,client);
+                    DAOClients.AddInClientBase(client);
                 }
                 else if(roomcommand == 2){
                     price = 65.50;
@@ -103,6 +110,7 @@ public class Main {
                     room = new Suite(price, number, beds,bar,countap);
                     Client client = new Client(name, surname,mobile,price,room);
                     clients.add(counter,client);
+                    DAOClients.AddInClientBase(client);
                 }
                 else if(roomcommand == 3){
                     price = 105.70;
@@ -126,6 +134,7 @@ public class Main {
                     room = new Studio(price, number, beds,kitchen);
                     Client client = new Client(name, surname,mobile,price,room);
                     clients.add(counter,client);
+                    DAOClients.AddInClientBase(client);
                 }
                 else if(roomcommand == 4){
                     price = 175.70;
@@ -148,48 +157,63 @@ public class Main {
                     room = new Bungalo(price, number, beds,pool);
                     Client client = new Client(name, surname,mobile,price,room);
                     clients.add(counter,client);
+                    DAOClients.AddInClientBase(client);
                 }
                 counter = counter + 1;
 
             }
             else if(command == 2){
-                System.out.println("Hotel's clients:");
-
-                try {
-                    File file = new File("clients.txt");
-                    FileReader fr = new FileReader(file);
-                    BufferedReader reader = new BufferedReader(fr);
-                    String line = reader.readLine();
-                    while (line != null) {
-                        System.out.println(line);
-                        line = reader.readLine();
-                    }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                Comparator<Client> comp;
+                String clName;
+                String clSurname;
+                String clNumber;
+                ArrayList<Client> clientsFromBase = Controller.GetAllClientsInList();
+                System.out.println("1-Показать список клиентов\n" +
+                                    "2-Найти клиента по фамилии\n" +
+                                    "3-Найти клиента по номеру телефона\n" +
+                                    "4-Удалить клиента\n" +
+                                    "5-Отсортировать по фамилии\n" +
+                                    "6-Отсортировать по цене брони\n");
+                int adminCommand = in.nextInt();
+                switch (adminCommand){
+                    case 1:
+                        OutputToScreen.OutputToScreenFromFile();
+                        break;
+                    case 2:
+                        System.out.println("Имя:");
+                        clName = in.next();
+                        System.out.println("Фамилия:");
+                        clSurname = in.next();
+                        Controller.FindClientInBase(clName,clSurname,clientsFromBase);
+                        break;
+                    case 3:
+                        System.out.println("Номер телефона:");
+                        clNumber = in.next();
+                        Controller.FindClientInBase(clNumber,clientsFromBase);
+                        break;
+                    case 4:
+                        System.out.println("Номер телефона:");
+                        clNumber = in.next();
+                        Controller.DeleteClient(clNumber,clientsFromBase);
+                        break;
+                    case 5:
+                        comp = new CompareBySurname();
+                        clientsFromBase.sort(comp);
+                        OutputToScreen.OutputToScreenFromList(clientsFromBase);
+                        break;
+                    case 6:
+                        comp = new CompareByPrice();
+                        clientsFromBase.sort(comp);
+                        OutputToScreen.OutputToScreenFromList(clientsFromBase);
+                        break;
                 }
+
+
             }
 
         }
 
-        //write to file
-        String text = "";
-        try(FileWriter writer = new FileWriter("clients.txt", false))
-        {
-            for (int i = 0; i < clients.size(); i++){
-                Client listClient = (Client) clients.get(i);
-                text = listClient.getName() +"|"+ listClient.getSurname() +"|"+ listClient.getMobilePhone() +"|"+ listClient.getPayCheque() +"|"+ listClient.getRoom().getNumberOfRoom();
 
-                writer.write(text);
-                writer.append('\n');
-                writer.flush();
-            }
-
-        }
-        catch(IOException ex){
-            System.out.println(ex.getMessage());
-        }
 
     }
 }
