@@ -14,16 +14,10 @@ public class Client {
         Surname = surname;
         MobilePhone = mobilePhone;
         PayCheque = paycheque;
-        Room room = new Room();
-        room.setNumberOfRoom(numroom);
+        this.getRoom().setNumberOfRoom(numroom);
     }
 
-    public Client() {
-    }
-    public Client(String name,String surname){
-        Name=name;
-        Surname=surname;
-    }
+    public Client() {}
     @Override
     public String toString() {
         return "Client{" + "name=" + Name + ", surname=" + Surname + ", phone=" + MobilePhone + ", price=" + PayCheque +  '}';

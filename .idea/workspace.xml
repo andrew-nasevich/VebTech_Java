@@ -5,10 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Room.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/DAOClients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/DAOClients.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +101,7 @@
       <workItem from="1569324678591" duration="2708000" />
       <workItem from="1569330857532" duration="11197000" />
       <workItem from="1570739282425" duration="291000" />
-      <workItem from="1570861383937" duration="28960000" />
+      <workItem from="1570861383937" duration="33425000" />
     </task>
     <servers />
   </component>

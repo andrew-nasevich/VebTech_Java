@@ -16,8 +16,9 @@ public class Controller {
         int i = 0;
         int index = 0;
         while (i < records.size()) {
-            clients.add(index,new Client(records.get(i), records.get(i + 1), records.get(i + 2), Double.parseDouble(records.get(i + 3)), Integer.parseInt(records.get(i + 4))));
-            i += 5;
+            Client client = new Client(records.get(i), records.get(i + 1), records.get(i + 2), Double.parseDouble(records.get(i + 3)), new Room(Double.parseDouble(records.get(i + 4)),Integer.parseInt(records.get(i+5)),Integer.parseInt(records.get(i + 6))));
+            clients.add(index,client);
+            i += 7;
             index+=1;
         }
         return clients;
@@ -25,39 +26,61 @@ public class Controller {
 
     //Поиск по фамилии и имени
     public static void FindClientInBase(String name, String surname,ArrayList<Client> base){
-        String result = "База пуста.";
-        Client finder = new Client(name,surname);
+        String result;
         for (Client cl : base)
         {
-            if (cl.getSurname().equals(finder.getSurname()))
-                result = name+" "+surname+" есть в базе клиентов.";
+            if (cl.getName().equals(name)&&cl.getSurname().equals(surname)){
+                result = cl.getName()+" "+cl.getSurname()+" есть в базе клиентов.";
+                System.out.println(result);
+                return;
+            }
 
-            else
-                result =  name+" "+surname+" отсутствует в базе.";
+            else{
+                result =  cl.getName()+" "+cl.getSurname()+" отсутствует в базе.";
+                System.out.println(result);
+                return;
+            }
         }
-        System.out.println(result);
+        return;
+
     }
 
     //Поиск по номеру телефона
-    public static String FindClientInBase(String phone,ArrayList<Client> base){
-        String result = "База пуста.";
+    public static void FindClientInBase(String phone,ArrayList<Client> base){
+        String result;
         for (Client cl : base)
         {
-            if (cl.getMobilePhone()==phone)
-                result = cl.getName()+" "+cl.getSurname()+" есть в базе клиентов. Снимает номер " + cl.getRoom().getNumberOfRoom();
+            if (cl.getMobilePhone().equals(phone)){
+                result = cl.getName()+" "+cl.getSurname()+" есть в базе клиентов.";
+                System.out.println(result);
+                return;
+            }
 
-            else
+            else{
                 result =  cl.getName()+" "+cl.getSurname()+" отсутствует в базе.";
+                System.out.println(result);
+                return;
+            }
         }
-        return result;
+        return;
     }
 
-    public static void DeleteClient(String phone,ArrayList<Client> base){
+    public static void DeleteClient(String phone,ArrayList<Client> base) throws IOException {
         for (Client cl : base)
         {
-            if (cl.getMobilePhone()==phone)
+            if (cl.getMobilePhone().equals(phone)) {
                 base.remove(cl);
+                System.out.println("Клиент "+cl.getName()+" "+cl.getSurname()+" с номером телефона "+cl.getMobilePhone()+"успешно удален");
+                DAOClients.AddAllListInFile(base);
+                return;
+            }
+            else {
+                System.out.println("Клиента с таким номером в базе не существует");
+                return;
+            }
         }
+
+        return;
     }
 
 
