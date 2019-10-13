@@ -16,6 +16,10 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+        int[][] hotelRooms = {{0,1,2,3,4,5,6,7,8,9},
+                              {10,11,12,13,14,15,16,17,18,19},
+                              {20,21,22,23,24,25,26,27,28,29},
+                              {30,31,32,33,34,35,36,37,38,39}};
 
         Scanner in = new Scanner(System.in);
 
@@ -55,7 +59,9 @@ public class Main {
                 if(roomcommand == 1){
                     price = 45.50;
 
-                    System.out.println("Available Superior rooms: 14, 15, 17, 19");
+                    System.out.print("Available Superior rooms: ");
+                    Controller.FindAvailableRooms(hotelRooms[1]);
+
                     System.out.println("Number of room:");
                     number = in.nextInt();
 
@@ -84,11 +90,14 @@ public class Main {
                     Client client = new Client(name, surname,mobile,price,room);
                     clients.add(counter,client);
                     DAOClients.AddInClientBase(client);
+                    hotelRooms = Controller.UpdateHotelRooms(number,hotelRooms);
                 }
                 else if(roomcommand == 2){
                     price = 65.50;
 
-                    System.out.println("Available Suite rooms: 22, 26, 27, 29");
+                    System.out.print("Available Suite rooms:");
+                    Controller.FindAvailableRooms(hotelRooms[2]);
+
                     System.out.println("Number of room:");
                     number = in.nextInt();
 
@@ -111,11 +120,14 @@ public class Main {
                     Client client = new Client(name, surname,mobile,price,room);
                     clients.add(counter,client);
                     DAOClients.AddInClientBase(client);
+                    hotelRooms = Controller.UpdateHotelRooms(number,hotelRooms);
                 }
                 else if(roomcommand == 3){
                     price = 105.70;
 
-                    System.out.println("Available Studio rooms: 34, 36, 38");
+                    System.out.print("Available Studio rooms: ");
+                    Controller.FindAvailableRooms(hotelRooms[3]);
+
                     System.out.println("Number of room:");
                     number = in.nextInt();
 
@@ -135,10 +147,13 @@ public class Main {
                     Client client = new Client(name, surname,mobile,price,room);
                     clients.add(counter,client);
                     DAOClients.AddInClientBase(client);
+                    hotelRooms = Controller.UpdateHotelRooms(number,hotelRooms);
                 }
                 else if(roomcommand == 4){
                     price = 175.70;
-                    System.out.println("Available Studio rooms: 1, 3, 6, 7, 9");
+                    System.out.print("Available Studio rooms: ");
+                    Controller.FindAvailableRooms(hotelRooms[0]);
+
                     System.out.println("Number of room:");
                     number = in.nextInt();
 
@@ -158,6 +173,7 @@ public class Main {
                     Client client = new Client(name, surname,mobile,price,room);
                     clients.add(counter,client);
                     DAOClients.AddInClientBase(client);
+                    hotelRooms = Controller.UpdateHotelRooms(number,hotelRooms);
                 }
                 counter = counter + 1;
 
@@ -167,13 +183,15 @@ public class Main {
                 String clName;
                 String clSurname;
                 String clNumber;
+                Double clCheque;
                 ArrayList<Client> clientsFromBase = Controller.GetAllClientsInList();
                 System.out.println("1-Показать список клиентов\n" +
                                     "2-Найти клиента по фамилии\n" +
                                     "3-Найти клиента по номеру телефона\n" +
                                     "4-Удалить клиента\n" +
                                     "5-Отсортировать по фамилии\n" +
-                                    "6-Отсортировать по цене брони\n");
+                                    "6-Отсортировать по цене брони\n"+
+                                    "7-Редактировать платежный чек\n");
                 int adminCommand = in.nextInt();
                 switch (adminCommand){
                     case 1:
@@ -205,6 +223,17 @@ public class Main {
                         comp = new CompareByPrice();
                         clientsFromBase.sort(comp);
                         OutputToScreen.OutputToScreenFromList(clientsFromBase);
+                        break;
+                    case 7:
+                        System.out.println("Имя:");
+                        clName = in.next();
+                        System.out.println("Фамилия:");
+                        clSurname = in.next();
+                        System.out.println("Номер телефона:");
+                        clNumber = in.next();
+                        System.out.println("Новый чек:");
+                        clCheque = in.nextDouble();
+                        Controller.RedactPayCheque(clName,clSurname,clNumber,clCheque,clientsFromBase);
                         break;
                 }
 

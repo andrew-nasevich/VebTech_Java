@@ -24,6 +24,27 @@ public class Controller {
         return clients;
     }
 
+    public static void RedactPayCheque(String name, String surname, String phone, Double newCheque, ArrayList<Client> base) throws IOException {
+        Boolean isInList=true;
+        for (Client cl : base)
+        {
+            if (cl.getName().equals(name)&&cl.getSurname().equals(surname)&&cl.getMobilePhone().equals(phone)){
+                isInList=true;
+                cl.setPayCheque(newCheque);
+                System.out.println("Новый чек клиента "+cl.getName()+" "+cl.getSurname()+" c номеров телефона "+cl.getMobilePhone()+": "+cl.getPayCheque());
+                DAOClients.AddAllListInFile(base);
+                return;
+            }
+            else
+                isInList=false;
+        }
+
+        if(isInList==false)
+            System.out.println(name+" "+surname+" отсутствует в базе.");
+
+        return;
+    }
+
     //Поиск по фамилии и имени
     public static void FindClientInBase(String name, String surname,ArrayList<Client> base){
         String result;
@@ -71,20 +92,26 @@ public class Controller {
         return;
     }
 
+    private static Client FindDeleteClient(String phone,ArrayList<Client> base){
+        for (Client cl : base) {
+            if (cl.getMobilePhone().equals(phone)) {
+                return  cl;
+            }
+        }
+        return null;
+    }
+
     public static void DeleteClient(String phone,ArrayList<Client> base) throws IOException {
         Boolean isInList = true;
-        for (Client cl : base)
-        {
-            if (cl.getMobilePhone().equals(phone)) {
+        Client cl = FindDeleteClient(phone,base);
+            if (cl!=null) {
                 isInList = true;
                 base.remove(cl);
                 System.out.println("Клиент "+cl.getName()+" "+cl.getSurname()+" с номером телефона "+cl.getMobilePhone()+" успешно удален");
-
             }
             else
                 isInList = false;
 
-        }
         if(isInList==false)
             System.out.println("Клиента с таким номером в базе не существует");
         else
@@ -92,5 +119,27 @@ public class Controller {
         return;
     }
 
+    public static void FindAvailableRooms(int[] level){
+        int j = 0;
+        String availableRooms = "";
+        for (int i = 0; i < level.length; i++){
+            if (level[i]!=0)
+                availableRooms = availableRooms + String.valueOf(level[i]) + " ";
+        }
+        if (availableRooms == "")
+            System.out.println("Нет свободных номеров в этом классе.");
+        else
+            System.out.println(availableRooms);
+    }
+
+    public static int[][] UpdateHotelRooms(int reserve, int[][] hotelRooms){
+        for (int i = 0; i<4;i++){
+            for (int j = 0; j<10; j++){
+                if(hotelRooms[i][j] == reserve)
+                    hotelRooms[i][j] = 0;
+            }
+        }
+        return hotelRooms;
+    }
 
 }
