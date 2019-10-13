@@ -1,4 +1,4 @@
-package by.BSUIR.Hotel;
+package by.BSUIR.Hotel.Bean;
 
 public class Bungalo extends Room {
     public Bungalo(double price, int numberOfRoom, int numOfBeds, Boolean isPool) {

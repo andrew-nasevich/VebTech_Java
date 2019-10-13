@@ -1,4 +1,4 @@
-package by.BSUIR.Hotel;
+package by.BSUIR.Hotel.Bean;
 
 public class Superior extends Room{
     public Superior(double price, int numberOfRoom, int numOfBeds, Boolean isBar, Boolean isCond) {

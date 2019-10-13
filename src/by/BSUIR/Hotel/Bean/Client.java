@@ -1,4 +1,4 @@
-package by.BSUIR.Hotel;
+package by.BSUIR.Hotel.Bean;
 
 public class Client {
     public Client(String name, String surname, String mobilePhone, double paycheque, Room clroom) {

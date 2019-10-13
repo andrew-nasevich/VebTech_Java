@@ -1,8 +1,9 @@
 package by.BSUIR.Hotel.Controller;
 
-import by.BSUIR.Hotel.Client;
+import by.BSUIR.Hotel.Bean.Client;
 import by.BSUIR.Hotel.DAO.DAOClients;
-import by.BSUIR.Hotel.Room;
+import by.BSUIR.Hotel.DAO.DAOHotelRooms;
+import by.BSUIR.Hotel.Bean.Room;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -139,6 +140,7 @@ public class Controller {
                     hotelRooms[i][j] = 0;
             }
         }
+        DAOHotelRooms.SaveArrayToFile(hotelRooms);
         return hotelRooms;
     }
 

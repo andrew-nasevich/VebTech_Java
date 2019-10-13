@@ -1,6 +1,6 @@
 package by.BSUIR.Hotel.Compare;
 
-import by.BSUIR.Hotel.Client;
+import by.BSUIR.Hotel.Bean.Client;
 
 import java.util.Comparator;
 

@@ -1,6 +1,6 @@
 package by.BSUIR.Hotel.DAO;
 
-import by.BSUIR.Hotel.Client;
+import by.BSUIR.Hotel.Bean.Client;
 
 import java.io.*;
 import java.util.ArrayList;

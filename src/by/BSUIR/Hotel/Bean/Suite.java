@@ -1,4 +1,4 @@
-package by.BSUIR.Hotel;
+package by.BSUIR.Hotel.Bean;
 
 public class Suite extends Room{
     public Suite(double price, int numberOfRoom, int numOfBeds, Boolean isBar, int numOfApartments) {

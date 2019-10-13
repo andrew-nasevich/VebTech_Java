@@ -1,4 +1,4 @@
-package by.BSUIR.Hotel;
+package by.BSUIR.Hotel.Bean;
 
 public class Room {
     public Room(double price, int numberOfRoom, int numOfBeds) {
