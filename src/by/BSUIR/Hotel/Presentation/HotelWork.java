@@ -34,7 +34,8 @@ public class HotelWork {
             command = in.nextInt();
 
             if (command == 1) {
-                hotelRooms = DAOHotelRooms.LoadArrayFromFile();
+                if (DAOHotelRooms.LoadArrayFromFile()!=null)
+                    hotelRooms = DAOHotelRooms.LoadArrayFromFile();
 
                 System.out.println("Имя:");
                 String name = in.next();
