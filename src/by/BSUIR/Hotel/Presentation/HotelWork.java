@@ -13,8 +13,12 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class HotelWork {
+    //ArrayList for clients' list
     private static ArrayList<Client> clients = new ArrayList<Client>();
+
     public static void Start() throws IOException {
+
+        //if file with rooms is empty array of room initialize here
         int[][] hotelRooms = {{0,1,2,3,4,5,6,7,8,9},
                 {10,11,12,13,14,15,16,17,18,19},
                 {20,21,22,23,24,25,26,27,28,29},
@@ -24,19 +28,24 @@ public class HotelWork {
 
         System.out.println("Добро пожаловать в отель!");
 
+        //Output menu for choice
         System.out.println("Меню:");
         int command = -1;
         int counter = 0;
         while (command!=0) {
+            //Choose start work like user or admin
             System.out.println("1-Забронировать номер\n" +
                     "2-Администратор\n" +
                     "0-ВЫХОД");
             command = in.nextInt();
 
+            //user mode
             if (command == 1) {
+                //if file with hotel rooms is not empty load from this file
                 if (DAOHotelRooms.LoadArrayFromFile()!=null)
                     hotelRooms = DAOHotelRooms.LoadArrayFromFile();
 
+                //main registration for user
                 System.out.println("Имя:");
                 String name = in.next();
 
@@ -51,6 +60,7 @@ public class HotelWork {
                 int number;
                 int beds;
 
+                //choose type of room and initialize it in dependence by type
                 System.out.println("1-Superior\n" +
                         "2-Suite\n" +
                         "3-Studio\n" +
@@ -179,6 +189,7 @@ public class HotelWork {
                 counter = counter + 1;
 
             }
+            //admin's action
             else if(command == 2){
                 Comparator<Client> comp;
                 String clName;
@@ -186,7 +197,6 @@ public class HotelWork {
                 String clNumber;
                 Double clCheque;
                 ArrayList<Client> clientsFromBase = Controller.GetAllClientsInList();
-
                 System.out.println("1-Показать список клиентов\n" +
                         "2-Найти клиента по фамилии\n" +
                         "3-Найти клиента по номеру телефона\n" +
@@ -196,9 +206,12 @@ public class HotelWork {
                         "7-Редактировать платежный чек\n");
                 int adminCommand = in.nextInt();
                 switch (adminCommand){
+                     //Output list of client to screen
                     case 1:
                         OutputToScreen.OutputToScreenFromFile();
                         break;
+
+                    //find client by surname
                     case 2:
                         System.out.println("Имя:");
                         clName = in.next();
@@ -206,26 +219,36 @@ public class HotelWork {
                         clSurname = in.next();
                         Controller.FindClientInBase(clName,clSurname,clientsFromBase);
                         break;
+
+                    //find client by phone number
                     case 3:
                         System.out.println("Номер телефона:");
                         clNumber = in.next();
                         Controller.FindClientInBase(clNumber,clientsFromBase);
                         break;
+
+                     //delete client from list
                     case 4:
                         System.out.println("Номер телефона:");
                         clNumber = in.next();
                         Controller.DeleteClient(clNumber,clientsFromBase);
                         break;
+
+                    //sort by surname
                     case 5:
                         comp = new CompareBySurname();
                         clientsFromBase.sort(comp);
                         OutputToScreen.OutputToScreenFromList(clientsFromBase);
                         break;
+
+                     //sort by pay cheque
                     case 6:
                         comp = new CompareByPrice();
                         clientsFromBase.sort(comp);
                         OutputToScreen.OutputToScreenFromList(clientsFromBase);
                         break;
+
+                    //redact pay cheque
                     case 7:
                         System.out.println("Имя:");
                         clName = in.next();

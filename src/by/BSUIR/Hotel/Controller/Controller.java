@@ -14,13 +14,15 @@ public class Controller {
     public static ArrayList<Client> GetAllClientsInList() throws IOException {
         ArrayList<Client> clients = new ArrayList<>();
         ArrayList<String> records = DAOClients.ReadFromClientBase();
-        int i = 0;
-        int index = 0;
-        while (i < records.size()) {
-            Client client = new Client(records.get(i), records.get(i + 1), records.get(i + 2), Double.parseDouble(records.get(i + 3)), new Room(Double.parseDouble(records.get(i + 4)),Integer.parseInt(records.get(i+5)),Integer.parseInt(records.get(i + 6))));
-            clients.add(index,client);
-            i += 7;
-            index+=1;
+        if(records!=null){
+            int i = 0;
+            int index = 0;
+            while (i < records.size()) {
+                Client client = new Client(records.get(i), records.get(i + 1), records.get(i + 2), Double.parseDouble(records.get(i + 3)), new Room(Double.parseDouble(records.get(i + 4)),Integer.parseInt(records.get(i+5)),Integer.parseInt(records.get(i + 6))));
+                clients.add(index,client);
+                i += 7;
+                index+=1;
+            }
         }
         return clients;
     }
@@ -54,9 +56,9 @@ public class Controller {
         {
             if (cl.getName().equals(name)&&cl.getSurname().equals(surname)){
                 isInList=true;
-                result = cl.getName()+" "+cl.getSurname()+" есть в базе клиентов.";
+                result = cl.getName()+" "+cl.getSurname()+" с номером телефона "+cl.getMobilePhone()+" есть в базе клиентов.";
                 System.out.println(result);
-                return;
+                //return;
             }
             else
                 isInList=false;
