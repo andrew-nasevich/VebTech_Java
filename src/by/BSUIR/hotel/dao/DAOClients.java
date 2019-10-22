@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DAOClients {
 
-    public static void addInClientBase(Client client) throws IOException {
+    public void addInClientBase(Client client) throws IOException {
         FileWriter fw = new FileWriter("clients.txt", true);
 
         try {
@@ -19,7 +19,7 @@ public class DAOClients {
         }
     }
 
-    public static List<String> readFromClientBase() throws IOException {
+    public List<String> readFromClientBase() throws IOException {
         List<String> records = new ArrayList();
         String strName;
         String strSurname;
@@ -68,7 +68,7 @@ public class DAOClients {
         return records;
     }
 
-    public static void addAllListInFile(List<Client> clients) throws IOException {
+    public void addAllListInFile(List<Client> clients) throws IOException {
 
         try {
             FileWriter fstream1 = new FileWriter("clients.txt");

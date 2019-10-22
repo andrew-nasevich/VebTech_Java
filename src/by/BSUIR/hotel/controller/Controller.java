@@ -12,9 +12,10 @@ import java.util.List;
 public class Controller {
 
     //Создать список клиентов
-    public static List<Client> getAllClientsInList() throws IOException {
+    public List<Client> getAllClientsInList() throws IOException {
+        DAOClients daoclients = new DAOClients();
         List<Client> clients = new ArrayList<>();
-        List<String> records = DAOClients.readFromClientBase();
+        List<String> records = daoclients.readFromClientBase();
         if(records!=null){
             int i = 0;
             int index = 0;
@@ -28,7 +29,8 @@ public class Controller {
         return clients;
     }
 
-    public static void redactPayCheque(String name, String surname, String phone, Double newCheque, List<Client> base) throws IOException {
+    public void redactPayCheque(String name, String surname, String phone, Double newCheque, List<Client> base) throws IOException {
+        DAOClients daoclients = new DAOClients();
         Boolean isInList=true;
         for (Client cl : base)
         {
@@ -36,7 +38,7 @@ public class Controller {
                 isInList=true;
                 cl.setPayCheque(newCheque);
                 System.out.println("Новый чек клиента "+cl.getName()+" "+cl.getSurname()+" c номеров телефона "+cl.getMobilePhone()+": "+cl.getPayCheque());
-                DAOClients.addAllListInFile(base);
+                daoclients.addAllListInFile(base);
                 return;
             }
             else
@@ -50,7 +52,7 @@ public class Controller {
     }
 
     //Поиск по фамилии и имени
-    public static void findClientInBase(String name, String surname,List<Client> base){
+    public void findClientInBase(String name, String surname,List<Client> base){
         String result;
         Boolean isInList=true;
         for (Client cl : base)
@@ -59,7 +61,6 @@ public class Controller {
                 isInList=true;
                 result = cl.getName()+" "+cl.getSurname()+" с номером телефона "+cl.getMobilePhone()+" есть в базе клиентов.";
                 System.out.println(result);
-                //return;
             }
             else
                 isInList=false;
@@ -74,7 +75,7 @@ public class Controller {
     }
 
     //Поиск по номеру телефона
-    public static void findClientInBase(String phone,List<Client> base){
+    public void findClientInBase(String phone,List<Client> base){
         String result;
         Boolean isInList=true;
         for (Client cl : base)
@@ -96,7 +97,7 @@ public class Controller {
         return;
     }
 
-    private static Client findDeleteClient(String phone,List<Client> base){
+    private Client findDeleteClient(String phone,List<Client> base){
         for (Client cl : base) {
             if (cl.getMobilePhone().equals(phone)) {
                 return  cl;
@@ -105,17 +106,19 @@ public class Controller {
         return null;
     }
 
-    private static void findRoomDeleteClient(int numOfRoom){
-        int [][] baseForSearch = DAOHotelRooms.loadArrayFromFile();
+    private void findRoomDeleteClient(int numOfRoom){
+        DAOHotelRooms daorooms = new DAOHotelRooms();
+        int [][] baseForSearch = daorooms.loadArrayFromFile();
         int indI;
         int indJ;
         indI = numOfRoom/10;
         indJ = numOfRoom%10;
         baseForSearch[indI][indJ]=numOfRoom;
-        DAOHotelRooms.saveArrayToFile(baseForSearch);
+        daorooms.saveArrayToFile(baseForSearch);
     }
 
-    public static void deleteClient(String phone,List<Client> base) throws IOException {
+    public void deleteClient(String phone,List<Client> base) throws IOException {
+        DAOClients daoclients = new DAOClients();
         Boolean isInList = true;
         Client cl = findDeleteClient(phone,base);
             if (cl!=null) {
@@ -130,11 +133,11 @@ public class Controller {
         if(isInList==false)
             System.out.println("Клиента с таким номером в базе не существует");
         else
-            DAOClients.addAllListInFile(base);
+            daoclients.addAllListInFile(base);
         return;
     }
 
-    public static void findAvailableRooms(int[] level){
+    public void findAvailableRooms(int[] level){
         int j = 0;
         String availableRooms = "";
         for (int i = 0; i < level.length; i++){
@@ -147,14 +150,15 @@ public class Controller {
             System.out.println(availableRooms);
     }
 
-    public static int[][] updateHotelRooms(int reserve, int[][] hotelRooms){
+    public int[][] updateHotelRooms(int reserve, int[][] hotelRooms){
+        DAOHotelRooms daorooms = new DAOHotelRooms();
         for (int i = 0; i<4;i++){
             for (int j = 0; j<10; j++){
                 if(hotelRooms[i][j] == reserve)
                     hotelRooms[i][j] = 0;
             }
         }
-        DAOHotelRooms.saveArrayToFile(hotelRooms);
+        daorooms.saveArrayToFile(hotelRooms);
         return hotelRooms;
     }
 

@@ -3,7 +3,7 @@ package by.BSUIR.hotel.dao;
 import java.io.*;
 
 public class DAOHotelRooms {
-    public static void saveArrayToFile(int[][] rooms) {
+    public void saveArrayToFile(int[][] rooms) {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("hotelRooms.txt"));
             bw.write(String.valueOf(rooms.length));
@@ -24,7 +24,7 @@ public class DAOHotelRooms {
 
     }
 
-    public static int[][] loadArrayFromFile() {
+    public int[][] loadArrayFromFile() {
         int[][] rooms = null;
         try (BufferedReader br = new BufferedReader(new FileReader("hotelRooms.txt"))) {
             // в первых 2-х строках файла цифры задают размерность массива

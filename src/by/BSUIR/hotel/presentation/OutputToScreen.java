@@ -8,7 +8,7 @@ import java.util.List;
 
 public class OutputToScreen {
 
-    public static void outputToScreenFromFile(){
+    public void outputToScreenFromFile(){
         System.out.println("Hotel's clients:");
 
         try {
@@ -31,7 +31,7 @@ public class OutputToScreen {
         }
     }
 
-    public static void outputToScreenFromList(List<Client> clients){
+    public void outputToScreenFromList(List<Client> clients){
 
         for(Client cl:clients) {
             System.out.println(cl.getName()+" "+cl.getSurname()+" "+cl.getMobilePhone()+" "+cl.getPayCheque()+" "+cl.getRoom().getNumberOfRoom());
