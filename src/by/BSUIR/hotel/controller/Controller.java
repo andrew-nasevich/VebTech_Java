@@ -1,19 +1,20 @@
-package by.BSUIR.Hotel.Controller;
+package by.BSUIR.hotel.controller;
 
-import by.BSUIR.Hotel.Bean.Client;
-import by.BSUIR.Hotel.DAO.DAOClients;
-import by.BSUIR.Hotel.DAO.DAOHotelRooms;
-import by.BSUIR.Hotel.Bean.Room;
+import by.BSUIR.hotel.bean.Client;
+import by.BSUIR.hotel.dao.DAOClients;
+import by.BSUIR.hotel.dao.DAOHotelRooms;
+import by.BSUIR.hotel.bean.Room;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
 
     //Создать список клиентов
-    public static ArrayList<Client> GetAllClientsInList() throws IOException {
-        ArrayList<Client> clients = new ArrayList<>();
-        ArrayList<String> records = DAOClients.ReadFromClientBase();
+    public static List<Client> getAllClientsInList() throws IOException {
+        List<Client> clients = new ArrayList<>();
+        List<String> records = DAOClients.readFromClientBase();
         if(records!=null){
             int i = 0;
             int index = 0;
@@ -27,7 +28,7 @@ public class Controller {
         return clients;
     }
 
-    public static void RedactPayCheque(String name, String surname, String phone, Double newCheque, ArrayList<Client> base) throws IOException {
+    public static void redactPayCheque(String name, String surname, String phone, Double newCheque, List<Client> base) throws IOException {
         Boolean isInList=true;
         for (Client cl : base)
         {
@@ -35,7 +36,7 @@ public class Controller {
                 isInList=true;
                 cl.setPayCheque(newCheque);
                 System.out.println("Новый чек клиента "+cl.getName()+" "+cl.getSurname()+" c номеров телефона "+cl.getMobilePhone()+": "+cl.getPayCheque());
-                DAOClients.AddAllListInFile(base);
+                DAOClients.addAllListInFile(base);
                 return;
             }
             else
@@ -49,7 +50,7 @@ public class Controller {
     }
 
     //Поиск по фамилии и имени
-    public static void FindClientInBase(String name, String surname,ArrayList<Client> base){
+    public static void findClientInBase(String name, String surname,List<Client> base){
         String result;
         Boolean isInList=true;
         for (Client cl : base)
@@ -73,7 +74,7 @@ public class Controller {
     }
 
     //Поиск по номеру телефона
-    public static void FindClientInBase(String phone,ArrayList<Client> base){
+    public static void findClientInBase(String phone,List<Client> base){
         String result;
         Boolean isInList=true;
         for (Client cl : base)
@@ -95,7 +96,7 @@ public class Controller {
         return;
     }
 
-    private static Client FindDeleteClient(String phone,ArrayList<Client> base){
+    private static Client findDeleteClient(String phone,List<Client> base){
         for (Client cl : base) {
             if (cl.getMobilePhone().equals(phone)) {
                 return  cl;
@@ -104,12 +105,23 @@ public class Controller {
         return null;
     }
 
-    public static void DeleteClient(String phone,ArrayList<Client> base) throws IOException {
+    private static void findRoomDeleteClient(int numOfRoom){
+        int [][] baseForSearch = DAOHotelRooms.loadArrayFromFile();
+        int indI;
+        int indJ;
+        indI = numOfRoom/10;
+        indJ = numOfRoom%10;
+        baseForSearch[indI][indJ]=numOfRoom;
+        DAOHotelRooms.saveArrayToFile(baseForSearch);
+    }
+
+    public static void deleteClient(String phone,List<Client> base) throws IOException {
         Boolean isInList = true;
-        Client cl = FindDeleteClient(phone,base);
+        Client cl = findDeleteClient(phone,base);
             if (cl!=null) {
                 isInList = true;
                 base.remove(cl);
+                findRoomDeleteClient(cl.getRoom().getNumberOfRoom());
                 System.out.println("Клиент "+cl.getName()+" "+cl.getSurname()+" с номером телефона "+cl.getMobilePhone()+" успешно удален");
             }
             else
@@ -118,11 +130,11 @@ public class Controller {
         if(isInList==false)
             System.out.println("Клиента с таким номером в базе не существует");
         else
-            DAOClients.AddAllListInFile(base);
+            DAOClients.addAllListInFile(base);
         return;
     }
 
-    public static void FindAvailableRooms(int[] level){
+    public static void findAvailableRooms(int[] level){
         int j = 0;
         String availableRooms = "";
         for (int i = 0; i < level.length; i++){
@@ -135,14 +147,14 @@ public class Controller {
             System.out.println(availableRooms);
     }
 
-    public static int[][] UpdateHotelRooms(int reserve, int[][] hotelRooms){
+    public static int[][] updateHotelRooms(int reserve, int[][] hotelRooms){
         for (int i = 0; i<4;i++){
             for (int j = 0; j<10; j++){
                 if(hotelRooms[i][j] == reserve)
                     hotelRooms[i][j] = 0;
             }
         }
-        DAOHotelRooms.SaveArrayToFile(hotelRooms);
+        DAOHotelRooms.saveArrayToFile(hotelRooms);
         return hotelRooms;
     }
 

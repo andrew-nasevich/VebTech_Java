@@ -1,13 +1,14 @@
-package by.BSUIR.Hotel.Presentation;
+package by.BSUIR.hotel.presentation;
 
-import by.BSUIR.Hotel.Bean.Client;
+import by.BSUIR.hotel.bean.Client;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class OutputToScreen {
 
-    public static void OutputToScreenFromFile(){
+    public static void outputToScreenFromFile(){
         System.out.println("Hotel's clients:");
 
         try {
@@ -30,7 +31,7 @@ public class OutputToScreen {
         }
     }
 
-    public static void OutputToScreenFromList(ArrayList<Client> clients){
+    public static void outputToScreenFromList(List<Client> clients){
 
         for(Client cl:clients) {
             System.out.println(cl.getName()+" "+cl.getSurname()+" "+cl.getMobilePhone()+" "+cl.getPayCheque()+" "+cl.getRoom().getNumberOfRoom());

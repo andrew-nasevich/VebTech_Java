@@ -1,22 +1,18 @@
-package by.BSUIR.Hotel.Presentation;
+package by.BSUIR.hotel.presentation;
 
-import by.BSUIR.Hotel.Bean.*;
-import by.BSUIR.Hotel.Compare.CompareByPrice;
-import by.BSUIR.Hotel.Compare.CompareBySurname;
-import by.BSUIR.Hotel.Controller.Controller;
-import by.BSUIR.Hotel.DAO.DAOClients;
-import by.BSUIR.Hotel.DAO.DAOHotelRooms;
+import by.BSUIR.hotel.bean.*;
+import by.BSUIR.hotel.compare.CompareByPrice;
+import by.BSUIR.hotel.compare.CompareBySurname;
+import by.BSUIR.hotel.controller.Controller;
+import by.BSUIR.hotel.dao.DAOClients;
+import by.BSUIR.hotel.dao.DAOHotelRooms;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class HotelWork {
-    //ArrayList for clients' list
-    private static ArrayList<Client> clients = new ArrayList<Client>();
 
-    public static void Start() throws IOException {
+    public void start() throws IOException {
 
         //if file with rooms is empty array of room initialize here
         int[][] hotelRooms = {{0,1,2,3,4,5,6,7,8,9},
@@ -41,19 +37,13 @@ public class HotelWork {
 
             //user mode
             if (command == 1) {
+                Client client = new Client();
                 //if file with hotel rooms is not empty load from this file
-                if (DAOHotelRooms.LoadArrayFromFile()!=null)
-                    hotelRooms = DAOHotelRooms.LoadArrayFromFile();
+                if (DAOHotelRooms.loadArrayFromFile()!=null)
+                    hotelRooms = DAOHotelRooms.loadArrayFromFile();
 
                 //main registration for user
-                System.out.println("Имя:");
-                String name = in.next();
 
-                System.out.println("Фамилия:");
-                String surname = in.next();
-
-                System.out.println("Номер телефона:");
-                String mobile = in.next();
 
                 Room room;
                 double price;
@@ -68,10 +58,23 @@ public class HotelWork {
                 int roomcommand = in.nextInt();
 
                 if(roomcommand == 1){
-                    price = 45.50;
-
                     System.out.print("Свободные Superior номера: ");
-                    Controller.FindAvailableRooms(hotelRooms[1]);
+                    Controller.findAvailableRooms(hotelRooms[1]);
+
+                    System.out.println("Нет подходящего номера? Хотите выбрать в другом классе? 0-нет 1-да");
+                    if (in.nextInt()==1)
+                        continue;
+
+                    System.out.println("Имя:");
+                    client.setName(in.next());
+
+                    System.out.println("Фамилия:");
+                    client.setSurname(in.next());
+
+                    System.out.println("Номер телефона:");
+                    client.setMobilePhone(in.next());
+
+                    price = 45.50;
 
                     System.out.println("Номер номера в отеле:");
                     number = in.nextInt();
@@ -98,16 +101,29 @@ public class HotelWork {
                         cond = false;
 
                     room = new Superior(price, number, beds,bar,cond);
-                    Client client = new Client(name, surname,mobile,price,room);
-                    clients.add(counter,client);
-                    DAOClients.AddInClientBase(client);
-                    hotelRooms = Controller.UpdateHotelRooms(number,hotelRooms);
+                    client.setPayCheque(price);
+                    client.setRoom(room);
+                    DAOClients.addInClientBase(client);
+                    hotelRooms = Controller.updateHotelRooms(number,hotelRooms);
                 }
                 else if(roomcommand == 2){
-                    price = 65.50;
-
                     System.out.print("Свободные Suite номера:");
-                    Controller.FindAvailableRooms(hotelRooms[2]);
+                    Controller.findAvailableRooms(hotelRooms[2]);
+
+                    System.out.println("Нет подходящего номера? Хотите выбрать в другом классе? 0-нет 1-да");
+                    if (in.nextInt()==1)
+                        continue;
+
+                    System.out.println("Имя:");
+                    client.setName(in.next());
+
+                    System.out.println("Фамилия:");
+                    client.setSurname(in.next());
+
+                    System.out.println("Номер телефона:");
+                    client.setMobilePhone(in.next());
+
+                    price = 65.50;
 
                     System.out.println("Номер номера в отеле:");
                     number = in.nextInt();
@@ -128,16 +144,30 @@ public class HotelWork {
                     int countap = in.nextInt();
 
                     room = new Suite(price, number, beds,bar,countap);
-                    Client client = new Client(name, surname,mobile,price,room);
-                    clients.add(counter,client);
-                    DAOClients.AddInClientBase(client);
-                    hotelRooms = Controller.UpdateHotelRooms(number,hotelRooms);
+                    client.setPayCheque(price);
+                    client.setRoom(room);
+                    DAOClients.addInClientBase(client);
+                    hotelRooms = Controller.updateHotelRooms(number,hotelRooms);
                 }
                 else if(roomcommand == 3){
+                    System.out.print("Свободные Studio номера: ");
+                    Controller.findAvailableRooms(hotelRooms[3]);
+
+                    System.out.println("Нет подходящего номера? Хотите выбрать в другом классе? 0-нет 1-да");
+                    if (in.nextInt()==1)
+                        continue;
+
+                    System.out.println("Имя:");
+                    client.setName(in.next());
+
+                    System.out.println("Фамилия:");
+                    client.setSurname(in.next());
+
+                    System.out.println("Номер телефона:");
+                    client.setMobilePhone(in.next());
+
                     price = 105.70;
 
-                    System.out.print("Свободные Studio номера: ");
-                    Controller.FindAvailableRooms(hotelRooms[3]);
 
                     System.out.println("Номер номера в отеле:");
                     number = in.nextInt();
@@ -155,15 +185,29 @@ public class HotelWork {
                         kitchen = false;
 
                     room = new Studio(price, number, beds,kitchen);
-                    Client client = new Client(name, surname,mobile,price,room);
-                    clients.add(counter,client);
-                    DAOClients.AddInClientBase(client);
-                    hotelRooms = Controller.UpdateHotelRooms(number,hotelRooms);
+                    client.setPayCheque(price);
+                    client.setRoom(room);
+                    DAOClients.addInClientBase(client);
+                    hotelRooms = Controller.updateHotelRooms(number,hotelRooms);
                 }
                 else if(roomcommand == 4){
-                    price = 175.70;
                     System.out.print("Свободные Bungalo номера: ");
-                    Controller.FindAvailableRooms(hotelRooms[0]);
+                    Controller.findAvailableRooms(hotelRooms[0]);
+
+                    System.out.println("Нет подходящего номера? Хотите выбрать в другом классе? 0-нет 1-да");
+                    if (in.nextInt()==1)
+                        continue;
+
+                    System.out.println("Имя:");
+                    client.setName(in.next());
+
+                    System.out.println("Фамилия:");
+                    client.setSurname(in.next());
+
+                    System.out.println("Номер телефона:");
+                    client.setMobilePhone(in.next());
+
+                    price = 145.70;
 
                     System.out.println("Номер номера в отеле:");
                     number = in.nextInt();
@@ -181,10 +225,10 @@ public class HotelWork {
                         pool = false;
 
                     room = new Bungalo(price, number, beds,pool);
-                    Client client = new Client(name, surname,mobile,price,room);
-                    clients.add(counter,client);
-                    DAOClients.AddInClientBase(client);
-                    hotelRooms = Controller.UpdateHotelRooms(number,hotelRooms);
+                    client.setPayCheque(price);
+                    client.setRoom(room);
+                    DAOClients.addInClientBase(client);
+                    hotelRooms = Controller.updateHotelRooms(number,hotelRooms);
                 }
                 counter = counter + 1;
 
@@ -196,9 +240,9 @@ public class HotelWork {
                 String clSurname;
                 String clNumber;
                 Double clCheque;
-                ArrayList<Client> clientsFromBase = Controller.GetAllClientsInList();
+                List<Client> clientsFromBase = Controller.getAllClientsInList();
                 System.out.println("1-Показать список клиентов\n" +
-                        "2-Найти клиента по фамилии\n" +
+                        "2-Найти клиента по имени и фамилии\n" +
                         "3-Найти клиента по номеру телефона\n" +
                         "4-Удалить клиента\n" +
                         "5-Отсортировать по фамилии\n" +
@@ -208,7 +252,7 @@ public class HotelWork {
                 switch (adminCommand){
                      //Output list of client to screen
                     case 1:
-                        OutputToScreen.OutputToScreenFromFile();
+                        OutputToScreen.outputToScreenFromFile();
                         break;
 
                     //find client by surname
@@ -217,35 +261,35 @@ public class HotelWork {
                         clName = in.next();
                         System.out.println("Фамилия:");
                         clSurname = in.next();
-                        Controller.FindClientInBase(clName,clSurname,clientsFromBase);
+                        Controller.findClientInBase(clName,clSurname,clientsFromBase);
                         break;
 
                     //find client by phone number
                     case 3:
                         System.out.println("Номер телефона:");
                         clNumber = in.next();
-                        Controller.FindClientInBase(clNumber,clientsFromBase);
+                        Controller.findClientInBase(clNumber,clientsFromBase);
                         break;
 
                      //delete client from list
                     case 4:
                         System.out.println("Номер телефона:");
                         clNumber = in.next();
-                        Controller.DeleteClient(clNumber,clientsFromBase);
+                        Controller.deleteClient(clNumber,clientsFromBase);
                         break;
 
                     //sort by surname
                     case 5:
                         comp = new CompareBySurname();
                         clientsFromBase.sort(comp);
-                        OutputToScreen.OutputToScreenFromList(clientsFromBase);
+                        OutputToScreen.outputToScreenFromList(clientsFromBase);
                         break;
 
                      //sort by pay cheque
                     case 6:
                         comp = new CompareByPrice();
                         clientsFromBase.sort(comp);
-                        OutputToScreen.OutputToScreenFromList(clientsFromBase);
+                        OutputToScreen.outputToScreenFromList(clientsFromBase);
                         break;
 
                     //redact pay cheque
@@ -258,7 +302,7 @@ public class HotelWork {
                         clNumber = in.next();
                         System.out.println("Новый чек:");
                         clCheque = in.nextDouble();
-                        Controller.RedactPayCheque(clName,clSurname,clNumber,clCheque,clientsFromBase);
+                        Controller.redactPayCheque(clName,clSurname,clNumber,clCheque,clientsFromBase);
                         break;
                 }
 

@@ -1,6 +1,6 @@
-package by.BSUIR.Hotel.Compare;
+package by.BSUIR.hotel.compare;
 
-import by.BSUIR.Hotel.Bean.Client;
+import by.BSUIR.hotel.bean.Client;
 
 import java.util.Comparator;
 public class CompareBySurname implements Comparator<Client> {

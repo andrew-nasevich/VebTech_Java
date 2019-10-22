@@ -1,6 +1,8 @@
-package by.BSUIR.Hotel.Bean;
+package by.BSUIR.hotel.bean;
 
 public class Studio extends Room{
+    private Boolean isKitchen;
+
     public Studio(double price, int numberOfRoom, int numOfBeds, Boolean isKitchen) {
         super(price, numberOfRoom, numOfBeds);
         this.isKitchen = isKitchen;
@@ -14,5 +16,4 @@ public class Studio extends Room{
         isKitchen = kitchen;
     }
 
-    private Boolean isKitchen;
 }

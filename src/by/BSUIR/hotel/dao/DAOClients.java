@@ -1,13 +1,14 @@
-package by.BSUIR.Hotel.DAO;
+package by.BSUIR.hotel.dao;
 
-import by.BSUIR.Hotel.Bean.Client;
+import by.BSUIR.hotel.bean.Client;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DAOClients {
 
-    public static void AddInClientBase(Client client) throws IOException {
+    public static void addInClientBase(Client client) throws IOException {
         FileWriter fw = new FileWriter("clients.txt", true);
 
         try {
@@ -18,8 +19,8 @@ public class DAOClients {
         }
     }
 
-    public static ArrayList<String> ReadFromClientBase() throws IOException {
-        ArrayList<String> records = new ArrayList();
+    public static List<String> readFromClientBase() throws IOException {
+        List<String> records = new ArrayList();
         String strName;
         String strSurname;
         String strPhone;
@@ -67,7 +68,7 @@ public class DAOClients {
         return records;
     }
 
-    public static void AddAllListInFile(ArrayList<Client> clients) throws IOException {
+    public static void addAllListInFile(List<Client> clients) throws IOException {
 
         try {
             FileWriter fstream1 = new FileWriter("clients.txt");
