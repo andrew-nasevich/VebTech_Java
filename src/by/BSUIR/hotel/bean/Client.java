@@ -7,8 +7,14 @@ public class Client {
     private String mobilePhone;
     private double payCheque;
     private Room room;
+    private int id;
 
-    public Client(String name, String surname, String mobilePhone, double payCheque, Room room) {
+    public Client(int id) {
+        this.id = id;
+    }
+
+    public Client(int id, String name, String surname, String mobilePhone, double payCheque, Room room) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.mobilePhone = mobilePhone;
@@ -16,7 +22,8 @@ public class Client {
         this.room = room;
     }
 
-    public Client(String name, String surname, String mobilePhone, double payCheque, int numroom) {
+    public Client(int id, String name, String surname, String mobilePhone, double payCheque, int numroom) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.mobilePhone = mobilePhone;
@@ -65,5 +72,13 @@ public class Client {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
