@@ -205,7 +205,7 @@ public class ClientXmlParser implements XmlParser<Client> {
         lastNameElement.appendChild(document.createTextNode(client.getSurname()));
 
         var phoneElement = document.createElement(PHONE);
-        phoneElement.appendChild(document.createTextNode(Double.toString(client.getPayCheque())));
+        phoneElement.appendChild(document.createTextNode(client.getMobilePhone()));
 
 
         clientElement.appendChild(idElement);

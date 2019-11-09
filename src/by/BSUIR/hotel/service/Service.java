@@ -54,16 +54,6 @@ public interface Service<T> {
     void sort(Comparator<T> comparator) throws ServiceException;
 
 
-    /**
-     * Find list.
-     *
-     * @param finder the finder
-     * @param value  the value
-     * @return the list
-     * @throws ServiceException the service exception
-     */
-    List<T> find(Finder<T> finder, T value) throws ServiceException;
-
 
     /**
      * Gets all.

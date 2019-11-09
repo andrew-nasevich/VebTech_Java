@@ -3,7 +3,9 @@ package by.BSUIR.hotel.service;
 
 
 import by.BSUIR.hotel.bean.Client;
+import by.BSUIR.hotel.controller.DBController;
 import by.BSUIR.hotel.dao.DaoClient;
+import by.BSUIR.hotel.parser.*;
 
 import java.util.Comparator;
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
  */
 public class ClientService implements Service<Client> {
     private static final String NOT_FOUND = "Client not found.";
+
 
     private DaoClient daoClient;
 
@@ -28,15 +31,17 @@ public class ClientService implements Service<Client> {
 
     @Override
     public void create(Client item) throws ServiceException {
+        List<Client> clients = daoClient.getAll();
         if (item == null) {
             throw new ServiceException(NOT_FOUND);
         }
 
-        if (daoClient.getAll().stream().anyMatch(x -> x.equals(item))) {
+        if (clients.contains(item)) {
             throw new ServiceException("Client is exist");
         }
-
         daoClient.add(item);
+        DBController dbcontroller = new DBController();
+        dbcontroller.addInDB(item);
     }
 
     @Override
@@ -50,6 +55,8 @@ public class ClientService implements Service<Client> {
             if (x.getId() == item.getId()) {
                 daoClient.delete(x);
                 daoClient.add(item);
+                DBController dbcontroller = new DBController();
+                dbcontroller.updateInDB(item);
                 return;
             }
         }
@@ -60,6 +67,8 @@ public class ClientService implements Service<Client> {
     @Override
     public void delete(int id) {
         daoClient.delete(daoClient.get(id));
+        DBController dbcontroller = new DBController();
+        dbcontroller.deleteFromDB(id);
     }
 
     @Override
@@ -70,23 +79,20 @@ public class ClientService implements Service<Client> {
 
         var clients = daoClient.getAll();
         clients.sort(comparator);
+        daoClient.addSort(clients);
     }
 
-    @Override
-    public List<Client> find(Finder<Client> finder, Client value) throws ServiceException {
-        if (finder == null) {
-            throw new ServiceException("Finder is null.");
-        }
-
-        if (value == null) {
-            throw new ServiceException("Value is null.");
-        }
-
-        return daoClient.getAll().stream().filter(x -> finder.isFound(x, value)).collect(Collectors.toList());
-    }
 
     @Override
     public List<Client> getAll() {
         return daoClient.getAll();
+    }
+
+    public void findClientInBase(String name, String surname){
+       daoClient.findByNameAndSurname(name, surname);
+    }
+
+    public void findClientInBase(int roomNumber){
+        daoClient.findByRoom(roomNumber);
     }
 }

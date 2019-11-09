@@ -1,5 +1,7 @@
 package by.BSUIR.hotel.bean;
 
+import java.util.Objects;
+
 public class Client {
 
     private String name;
@@ -81,4 +83,5 @@ public class Client {
     public void setId(int id) {
         this.id = id;
     }
+
 }

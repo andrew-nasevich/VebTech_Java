@@ -13,6 +13,11 @@ public class Room {
 
     public Room(){};
 
+    public Room(int number,double cost){
+        this.numberOfRoom = number;
+        this.price = cost;
+    }
+
     public double getPrice() {
         return price;
     }
