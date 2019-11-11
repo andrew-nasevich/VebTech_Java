@@ -1,12 +1,11 @@
 package by.BSUIR.hotel.controller;
 
 import by.BSUIR.hotel.bean.Client;
-
-import java.util.List;
+import org.apache.log4j.Logger;
 import java.sql.*;
 
 public class DBController {
-
+    private static final Logger logger = Logger.getLogger(DBController.class);
 
     private static final String PUT_CLIENT_IN_HOTEL_QUERY = "INSERT INTO clients (id_client,name,surname,phone,room_number,room_cost) VALUES (?,?,?,?,?,?);";
     private static final String UPDATE_CLIENT_IN_HOTEL_QUERY = "UPDATE clients SET surname = ? WHERE id_client = ?";
@@ -23,7 +22,7 @@ public class DBController {
                 stmt = conn.prepareStatement(PUT_CLIENT_IN_HOTEL_QUERY);
             }
             catch (SQLException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
             try {
                 stmt.setInt(1, client.getId());
@@ -40,6 +39,7 @@ public class DBController {
 
             }
             catch (SQLException e) {
+                logger.error(e.getMessage());
                 throw new RuntimeException(e);
             }
             finally{
@@ -47,7 +47,7 @@ public class DBController {
             }
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
 
 
@@ -66,7 +66,7 @@ public class DBController {
                 stmt = conn.prepareStatement(UPDATE_CLIENT_IN_HOTEL_QUERY);
             }
             catch (SQLException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
             try {
                 stmt.setString(1, client.getSurname());
@@ -77,6 +77,7 @@ public class DBController {
                 }
             }
             catch (SQLException e) {
+                logger.error(e.getMessage());
                 throw new RuntimeException(e);
             }
             finally{
@@ -84,7 +85,7 @@ public class DBController {
             }
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return result;
     }
@@ -100,7 +101,7 @@ public class DBController {
                 stmt = conn.prepareStatement(DELETE_CLIENT_FROM_HOTEL_QUERY);
             }
             catch (SQLException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
             try {
                 stmt.setInt(1, id);
@@ -110,6 +111,7 @@ public class DBController {
                 }
             }
             catch (SQLException e) {
+                logger.error(e.getMessage());
                 throw new RuntimeException(e);
             }
             finally{
@@ -117,7 +119,7 @@ public class DBController {
             }
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return result;
     }

@@ -2,13 +2,11 @@ package by.BSUIR.hotel;
 
 import by.BSUIR.hotel.bean.*;
 import by.BSUIR.hotel.compare.CompareById;
-import by.BSUIR.hotel.controller.DBController;
 import by.BSUIR.hotel.dao.DaoClient;
 import by.BSUIR.hotel.parser.*;
 import by.BSUIR.hotel.service.ClientService;
 
 import java.io.*;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -41,12 +39,12 @@ public class Main {
             Client cl = new Client(3, "Luffy", "Monkey", "+375178401265",75.0, room);
             switch (command){
                 case 1:
-                    System.out.println("Create:");
+                    System.out.println("Create...");
                     clientService.create(cl);
                     break;
 
                 case 2:
-                    System.out.println("Update:");
+                    System.out.println("Update...");
                     cl.setSurname("Monkey D.");
                     clientService.update(cl);
                     clientService.getAll().forEach(x -> System.out.println(x.getId() + " - " + x.getSurname()));
@@ -66,7 +64,7 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("Sort:");
+                    System.out.println("Sort...");
                     clientService.sort(new CompareById());
                     break;
 

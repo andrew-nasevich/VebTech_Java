@@ -1,11 +1,10 @@
 package by.BSUIR.hotel.service;
 
 
-
+import by.bsuir.DBController;
 import by.BSUIR.hotel.bean.Client;
-import by.BSUIR.hotel.controller.DBController;
+//import by.BSUIR.hotel.controller.DBController;
 import by.BSUIR.hotel.dao.DaoClient;
-import by.BSUIR.hotel.parser.*;
 
 import java.util.Comparator;
 import java.util.List;
@@ -41,7 +40,8 @@ public class ClientService implements Service<Client> {
         }
         daoClient.add(item);
         DBController dbcontroller = new DBController();
-        dbcontroller.addInDB(item);
+        dbcontroller.addInDB(item.getId(),item.getName(),item.getSurname(),item.getMobilePhone(),item.getRoom().getNumberOfRoom(),item.getRoom().getPrice());
+        //dbcontroller.addInDB(item);
     }
 
     @Override
@@ -56,7 +56,8 @@ public class ClientService implements Service<Client> {
                 daoClient.delete(x);
                 daoClient.add(item);
                 DBController dbcontroller = new DBController();
-                dbcontroller.updateInDB(item);
+                dbcontroller.updateInDB(item.getId(),item.getSurname());
+                //dbcontroller.updateInDB(item);
                 return;
             }
         }
@@ -69,6 +70,7 @@ public class ClientService implements Service<Client> {
         daoClient.delete(daoClient.get(id));
         DBController dbcontroller = new DBController();
         dbcontroller.deleteFromDB(id);
+        //dbcontroller.deleteFromDB(id);
     }
 
     @Override
