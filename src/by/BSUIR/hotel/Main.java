@@ -33,9 +33,10 @@ public class Main {
                     "5-Отсортировать по id\n" +
                     "6-Найти по имени и фамилии\n"+
                     "7-Найти по комнате\n"+
+                    "8-Миграция\n"+
                     "0-ВЫХОД");
-            command = in.nextInt();
-            Room room = new Room(35, 75.0);
+            command = in.nextInt();Room room = new Room(
+            35, 75.0);
             Client cl = new Client(3, "Luffy", "Monkey", "+375178401265",75.0, room);
             switch (command){
                 case 1:
@@ -75,6 +76,11 @@ public class Main {
                 case 7:
                     System.out.println("Find:");
                     clientService.findClientInBase(105);
+                    break;
+
+                case 8:
+                    System.out.println("Migration:");
+                    clientService.migrationAll();
                     break;
             }
         }

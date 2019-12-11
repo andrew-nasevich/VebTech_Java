@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><clients>
+    <client>
+        <id>1</id>
+        <first-name>Ace</first-name>
+        <last-name>Portgas</last-name>
+        <phone>+375115466321</phone>
+        <room>
+            <number>5</number>
+            <cost>120.0</cost>
+        </room>
+    </client>
+    <client>
+        <id>2</id>
+        <first-name>Zoro</first-name>
+        <last-name>Roronoa</last-name>
+        <phone>+375339999999</phone>
+        <room>
+            <number>15</number>
+            <cost>50.0</cost>
+        </room>
+    </client>
+</clients>

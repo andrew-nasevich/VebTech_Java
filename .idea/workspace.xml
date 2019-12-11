@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="WT_JAVA:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fb56aca0-338c-40e6-b96a-87d7615c956d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Bungalo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WT_JAVA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WT_JAVA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/META-INF/WT_JAVA.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Studio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Suite.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WT_JAVA/by/BSUIR/Hotel/Superior.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Bungalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Bean/Bungalo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Bean/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Compare/CompareByPrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Compare/CompareByPrice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Compare/CompareBySurname.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Compare/CompareBySurname.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/DAOClients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/DAOClients.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Presentation/OutputToScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Presentation/OutputToScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Bean/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Studio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Bean/Studio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Suite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Bean/Suite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Superior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/Hotel/Bean/Superior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/hotel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/hotel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/hotel/parser/ClientXmlParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/hotel/parser/ClientXmlParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/BSUIR/hotel/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/BSUIR/hotel/service/ClientService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,10 +25,48 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hotel_clients@alionashm" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hotel_clients@alionashm" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hotel_clients@alionashm" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="hotel_clients: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hotel_clients@alionashm" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="hotel_clients: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="clients: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -45,17 +79,28 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/by/BSUIR/Hotel/AutoBase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DBLibrary" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\УНИВЕР\3 курс\WT_JAVA\src\by\BSUIR\Hotel\AutoBase" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="by.BSUIR.Hotel.Controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.BSUIR.hotel.dao" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\УНИВЕР\3 курс\WT_JAVA" />
+      <recent name="D:\УНИВЕР\3 курс\WT_JAVA\src\by\BSUIR\hotel\resources" />
+      <recent name="D:\УНИВЕР\3 курс\WT_JAVA\src\by\BSUIR\hotel" />
+      <recent name="D:\УНИВЕР\3 курс\WT_JAVA\src\by\BSUIR\Hotel\AutoBase" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -71,12 +116,38 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.BSUIR.hotel.Main" />
+      <module name="WT_JAVA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.BSUIR.hotel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="by.BSUIR.Hotel.bean.Main" />
       <module name="WT_JAVA" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.BSUIR.hotel.Main" />
+      <module name="WT_JAVA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.BSUIR.hotel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,6 +172,21 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5518a15c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -117,6 +203,18 @@
       <workItem from="1570739282425" duration="291000" />
       <workItem from="1570861383937" duration="35936000" />
       <workItem from="1570960815389" duration="8745000" />
+      <workItem from="1571071094576" duration="1986000" />
+      <workItem from="1571121442242" duration="11577000" />
+      <workItem from="1571463846472" duration="581000" />
+      <workItem from="1571721395215" duration="7541000" />
+      <workItem from="1571746521236" duration="2862000" />
+      <workItem from="1572358487727" duration="130000" />
+      <workItem from="1573120305386" duration="1457000" />
+      <workItem from="1573122464890" duration="8509000" />
+      <workItem from="1573281626435" duration="12045000" />
+      <workItem from="1573297608325" duration="20465000" />
+      <workItem from="1573474555635" duration="5040000" />
+      <workItem from="1573540800766" duration="8984000" />
     </task>
     <servers />
   </component>
@@ -140,67 +238,67 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/dao/VehicleDAO/VehicleDAO.java</url>
           <line>37</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/dao/VehicleDAO/VehicleDAO.java</url>
           <line>38</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/dao/VehicleDAO/VehicleDAO.java</url>
           <line>39</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/dao/VehicleDAO/VehicleDAO.java</url>
           <line>41</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/dao/VehicleDAO/VehicleDAO.java</url>
           <line>42</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/dao/VehicleDAO/VehicleDAO.java</url>
           <line>43</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/dao/VehicleDAO/VehicleDAO.java</url>
           <line>24</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/Serialize/Serialize.java</url>
           <line>53</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/Serialize/Serialize.java</url>
           <line>54</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/Serialize/Serialize.java</url>
           <line>57</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/Serialize/Serialize.java</url>
           <line>59</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/Serialize/Serialize.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/Serialize/Serialize.java</url>
           <line>60</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/by/BSUIR/Hotel/DAO/VehicleDAO/VehicleDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/by/BSUIR/hotel/dao/VehicleDAO/VehicleDAO.java</url>
           <line>85</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>

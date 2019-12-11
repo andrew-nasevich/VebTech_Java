@@ -38,27 +38,14 @@ public class ClientXmlParser implements XmlParser<Client> {
     private String sourceFilePath;
     private String xsdFilePath;
 
-    /**
-     * Gets source file path.
-     *
-     * @return the source file path
-     */
     public String getSourceFilePath() {
         return sourceFilePath;
     }
 
-    /**
-     * Gets xsd file path.
-     *
-     * @return the xsd file path
-     */
     public String getXsdFilePath() {
         return xsdFilePath;
     }
 
-    /**
-     * Instantiates a new Client xml parser.
-     */
     public ClientXmlParser() {
         try {
             documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -67,13 +54,6 @@ public class ClientXmlParser implements XmlParser<Client> {
         }
     }
 
-
-    /**
-     * Instantiates a new Client xml parser.
-     *
-     * @param sourceFilePath the source file path
-     * @param xsdFilePath    the xsd file path
-     */
     public ClientXmlParser(String sourceFilePath, String xsdFilePath) {
         this();
         this.sourceFilePath = sourceFilePath;
